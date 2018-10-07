@@ -1,0 +1,42 @@
+ext {
+    def androidXUI = "1.0.0"
+    def androidX = "2.0.0"
+
+    ui = [
+            core            : "androidx.core:core:1.0.0",
+            design          : "com.google.android.material:material:1.0.0-rc01",
+            recyclerView    : "androidx.recyclerview:recyclerview:${androidXUI}",
+            cardView        : "androidx.cardview:cardview:${androidXUI}",
+            appCompat       : "androidx.appcompat:appcompat:${androidXUI}",
+            constraintLayout: "androidx.constraintlayout:constraintlayout:1.1.2",
+    ]
+
+    lifecycleDependencies = [
+            lifecycle        : "androidx.lifecycle:lifecycle-extensions:${androidX}",
+            lifecycleRuntime : "androidx.lifecycle:lifecycle-runtime:${androidX}",
+            lifecycleCompiler: "androidx.lifecycle:lifecycle-compiler:${androidX}",
+            stream           : "androidx.lifecycle:lifecycle-reactivestreams:${androidX}",
+    ]
+
+    room = [
+            roomRuntime : "androidx.room:room-runtime:${androidX}",
+            roomCompiler: "androidx.room:room-compiler:${androidX}",
+    ]
+
+    paging = "androidx.paging:paging-runtime:${androidX}"
+
+    def navVersion = "1.0.0-alpha06"
+    navigation = [
+            navFragment: "android.arch.navigation:navigation-fragment:${navVersion}",
+            navUI      : "android.arch.navigation:navigation-ui:${navVersion}",
+    ]
+
+    def coroutineVersion = "0.30.0-eap13"
+    kotlinDependencies = [
+            stdLib           : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            coroutines       : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion",
+            coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
+    ]
+
+    koin = "org.koin:koin-android-architecture:0.9.3"
+}

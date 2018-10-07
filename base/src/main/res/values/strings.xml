@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Remembrall</string>
+
+    <!--Home tabs-->
+    <string name="upcoming">Upcoming</string>
+    <string name="history">History</string>
+
+</resources>

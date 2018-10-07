@@ -1,0 +1,24 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: "androidx.navigation.safeargs"
+
+apply from: '../gradle/dependencies.gradle'
+
+apply from: '../gradle/androidConfig.gradle'
+
+androidExtensions {
+    experimental = true
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api ui.values()
+
+    implementation koin
+    implementation kotlinDependencies.values()
+
+}

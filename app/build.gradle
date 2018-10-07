@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: "androidx.navigation.safeargs"
+
+apply from: '../gradle/dependencies.gradle'
+
+apply from: '../gradle/androidConfig.gradle'
+
+kapt {
+    useBuildCache = true
+}
+
+androidExtensions {
+    experimental = true
+}
+
+android {
+    defaultConfig {
+        applicationId "com.meier.marina.remembrall"
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation lifecycleDependencies.lifecycle
+    implementation lifecycleDependencies.lifecycleRuntime
+    kapt lifecycleDependencies.lifecycleCompiler
+
+    implementation koin
+    implementation kotlinDependencies.values()
+
+    implementation navigation.values()
+
+    implementation project(':base')
+    implementation project(':data')
+    implementation project(':details')
+    implementation project(':listremembrall')
+}
