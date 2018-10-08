@@ -2,24 +2,16 @@ package com.meier.marina.listremembrall
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.paging.DataSource
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
+import com.meier.marina.base.ScopedViewModel
 import com.meier.marina.data.Remembrall
 import com.meier.marina.data.RemembrallDao
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import kotlin.coroutines.CoroutineContext
 
 //TODO: refactor with Scope
-internal class RemembrallListViewModel(private val remembrallDao: RemembrallDao) : ViewModel(), CoroutineScope {
-    private val job = Job()
-
-    override val coroutineContext: CoroutineContext
-        get() = job + Dispatchers.Default
+internal class RemembrallListViewModel(private val remembrallDao: RemembrallDao) : ScopedViewModel() {
 
     val stateLV = MutableLiveData<State>()
 
@@ -54,11 +46,6 @@ internal class RemembrallListViewModel(private val remembrallDao: RemembrallDao)
         data = LivePagedListBuilder(dataSource, config)
             .setBoundaryCallback(boundaryCallback)
             .build()
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        job.cancel()
     }
 }
 
