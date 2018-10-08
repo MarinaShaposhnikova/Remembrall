@@ -6,12 +6,11 @@ import androidx.paging.DataSource
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.meier.marina.base.ScopedViewModel
+import com.meier.marina.base.State
 import com.meier.marina.data.Remembrall
 import com.meier.marina.data.RemembrallDao
-import kotlinx.coroutines.launch
 
-//TODO: refactor with Scope
-internal class RemembrallListViewModel(private val remembrallDao: RemembrallDao) : ScopedViewModel() {
+internal class RemembrallListViewModel(remembrallDao: RemembrallDao) : ScopedViewModel() {
 
     val stateLV = MutableLiveData<State>()
 
@@ -19,19 +18,17 @@ internal class RemembrallListViewModel(private val remembrallDao: RemembrallDao)
 
     init {
 
+        stateLV.value = State.Loading
+
         val boundaryCallback = object : PagedList.BoundaryCallback<Remembrall>() {
             override fun onZeroItemsLoaded() {
                 super.onZeroItemsLoaded()
-                //TODO: set empty state and remove inserting
-                launch {
-                    remembrallDao.insert(Remembrall("marina"))
-                }
-
+                stateLV.value = State.Error(R.string.no_remembrall)
             }
 
             override fun onItemAtEndLoaded(itemAtEnd: Remembrall) {
                 super.onItemAtEndLoaded(itemAtEnd)
-                //TODO: set not empty state
+                stateLV.value = State.Success
             }
         }
 
@@ -48,6 +45,3 @@ internal class RemembrallListViewModel(private val remembrallDao: RemembrallDao)
             .build()
     }
 }
-
-//TODO: make common sealed state
-class State
