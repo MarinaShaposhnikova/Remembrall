@@ -9,7 +9,7 @@ import com.meier.marina.viewpager.ListDestination
 class HomeNavigator : Navigator {
     override fun navigate(destination: Destination) {
         if (destination is ListDestination) {
-            Navigation.findNavController(destination.view).navigate(R.id.action_viewPagerFragment_to_detailsFragment)
+            Navigation.findNavController(destination.view).navigate(R.id.action_viewPagerFragment_to_editorFragment)
         }
     }
 }

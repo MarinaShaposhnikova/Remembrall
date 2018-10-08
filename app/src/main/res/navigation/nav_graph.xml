@@ -11,9 +11,16 @@
         <action
             android:id="@+id/action_viewPagerFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_viewPagerFragment_to_editorFragment"
+            app:destination="@id/editorFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.meier.marina.details.DetailsFragment"
         android:label="DetailsFragment" />
+    <fragment
+        android:id="@+id/editorFragment"
+        android:name="com.meier.marina.editor.EditorFragment"
+        android:label="EditorFragment" />
 </navigation>

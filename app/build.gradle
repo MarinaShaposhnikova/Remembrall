@@ -39,6 +39,7 @@ dependencies {
 
     implementation project(':base')
     implementation project(':data')
+    implementation project(':editor')
     implementation project(':details')
     implementation project(':listremembrall')
 }

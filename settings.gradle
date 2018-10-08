@@ -1,1 +1,1 @@
-include ':app', ':details', ':data', ':listremembrall', ':base'
+include ':app', ':details', ':data', ':listremembrall', ':base', ':editor'
