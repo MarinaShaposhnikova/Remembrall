@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.meier.marina.base.DiffCallback
+import com.meier.marina.base.baseStateObserver
 import com.meier.marina.data.Remembrall
 import kotlinx.android.synthetic.main.fragment_list.*
 import org.koin.android.architecture.ext.viewModel
@@ -41,9 +42,7 @@ class RemembrallListFragment : Fragment() {
         listRemembrall.layoutManager = LinearLayoutManager(requireContext())
         listRemembrall.adapter = remembrallListAdapter
 
-        viewModel.stateLV.observe(this, Observer {
-            //TODO: modify UI with common state
-        })
+        viewModel.stateLV.observe(this, baseStateObserver(progress))
 
         viewModel.data.observe(this, Observer {
             val list = it
