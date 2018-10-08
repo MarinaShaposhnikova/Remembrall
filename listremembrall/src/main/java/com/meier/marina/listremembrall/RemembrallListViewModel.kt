@@ -2,24 +2,15 @@ package com.meier.marina.listremembrall
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.paging.DataSource
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
+import com.meier.marina.base.ScopedViewModel
+import com.meier.marina.base.State
 import com.meier.marina.data.Remembrall
 import com.meier.marina.data.RemembrallDao
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
-import kotlin.coroutines.CoroutineContext
 
-//TODO: refactor with Scope
-internal class RemembrallListViewModel(private val remembrallDao: RemembrallDao) : ViewModel(), CoroutineScope {
-    private val job = Job()
-
-    override val coroutineContext: CoroutineContext
-        get() = job + Dispatchers.Default
+internal class RemembrallListViewModel(remembrallDao: RemembrallDao) : ScopedViewModel() {
 
     val stateLV = MutableLiveData<State>()
 
@@ -27,19 +18,17 @@ internal class RemembrallListViewModel(private val remembrallDao: RemembrallDao)
 
     init {
 
+        stateLV.value = State.Loading
+
         val boundaryCallback = object : PagedList.BoundaryCallback<Remembrall>() {
             override fun onZeroItemsLoaded() {
                 super.onZeroItemsLoaded()
-                //TODO: set empty state and remove inserting
-                launch {
-                    remembrallDao.insert(Remembrall("marina"))
-                }
-
+                stateLV.value = State.Error(R.string.no_remembrall)
             }
 
             override fun onItemAtEndLoaded(itemAtEnd: Remembrall) {
                 super.onItemAtEndLoaded(itemAtEnd)
-                //TODO: set not empty state
+                stateLV.value = State.Success
             }
         }
 
@@ -55,12 +44,4 @@ internal class RemembrallListViewModel(private val remembrallDao: RemembrallDao)
             .setBoundaryCallback(boundaryCallback)
             .build()
     }
-
-    override fun onCleared() {
-        super.onCleared()
-        job.cancel()
-    }
 }
-
-//TODO: make common sealed state
-class State
