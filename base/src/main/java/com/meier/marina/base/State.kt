@@ -14,16 +14,11 @@ sealed class State {
 fun baseStateObserver(progress: View): Observer<State> {
     return Observer {
         when (it) {
+            is State.Success -> progress.visibility = View.GONE
+            is State.Loading -> progress.visibility = View.VISIBLE
             is State.Error -> {
                 progress.visibility = View.GONE
                 progress.context.showToast(it.res)
-            }
-            is State.Success -> {
-                progress.visibility = View.GONE
-
-            }
-            is State.Loading -> {
-                progress.visibility = View.VISIBLE
             }
         }
     }
