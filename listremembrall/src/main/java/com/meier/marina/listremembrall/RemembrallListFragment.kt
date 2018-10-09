@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.meier.marina.base.DiffCallback
 import com.meier.marina.base.baseStateObserver
-import com.meier.marina.data.Remembrall
+import com.meier.marina.data.entity.Remembrall
 import kotlinx.android.synthetic.main.fragment_list.*
 import org.koin.android.architecture.ext.viewModel
 

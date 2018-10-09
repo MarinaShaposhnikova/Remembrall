@@ -2,6 +2,7 @@ package com.meier.marina.data
 
 import androidx.paging.DataSource
 import androidx.room.*
+import com.meier.marina.data.entity.Remembrall
 
 @Dao
 interface RemembrallDao {

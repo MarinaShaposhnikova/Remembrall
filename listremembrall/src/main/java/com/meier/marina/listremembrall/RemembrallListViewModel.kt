@@ -7,7 +7,7 @@ import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.meier.marina.base.ScopedViewModel
 import com.meier.marina.base.State
-import com.meier.marina.data.Remembrall
+import com.meier.marina.data.entity.Remembrall
 import com.meier.marina.data.RemembrallDao
 
 internal class RemembrallListViewModel(remembrallDao: RemembrallDao) : ScopedViewModel() {

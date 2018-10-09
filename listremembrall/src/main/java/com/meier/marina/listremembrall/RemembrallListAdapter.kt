@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.RecyclerView
-import com.meier.marina.data.Remembrall
+import com.meier.marina.data.entity.Remembrall
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_remembrall.*
 
