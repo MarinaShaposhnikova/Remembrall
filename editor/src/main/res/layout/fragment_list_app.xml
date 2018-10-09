@@ -4,10 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!--TODO: remove, it's only for test-->
-    <fragment
-        android:id="@+id/fragmentList"
-        android:name="com.meier.marina.editor.listapp.ListAppFragment"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listApps"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 </LinearLayout>
