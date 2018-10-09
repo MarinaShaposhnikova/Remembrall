@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/viewPagerFragment">
 
     <fragment
         android:id="@+id/viewPagerFragment"
         android:name="com.meier.marina.viewpager.ViewPagerFragment"
-        android:label="ViewPagerFragment">
+        android:label="ViewPagerFragment"
+        tools:layout="@layout/fragment_view_pager">
         <action
             android:id="@+id/action_viewPagerFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
@@ -18,9 +20,11 @@
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.meier.marina.details.DetailsFragment"
-        android:label="DetailsFragment" />
+        android:label="DetailsFragment"
+        tools:layout="@layout/fragment_details" />
     <fragment
         android:id="@+id/editorFragment"
         android:name="com.meier.marina.editor.EditorFragment"
-        android:label="EditorFragment" />
+        android:label="EditorFragment"
+        tools:layout="@layout/fragment_editor" />
 </navigation>

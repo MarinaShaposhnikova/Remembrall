@@ -27,7 +27,7 @@ class ViewPagerFragment : Fragment() {
         pager.adapter = RemembrallPagerAdapter(childFragmentManager, requireContext().resources)
 
         buttonDetails.setOnClickListener {
-            navigator.navigate(ListDestination(view))
+            navigator.navigate(CreateDestination(view))
         }
     }
 }

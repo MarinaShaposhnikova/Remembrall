@@ -1,7 +1,6 @@
 ext {
     def androidXUI = "1.0.0"
     def androidX = "2.0.0"
-
     ui = [
             core            : "androidx.core:core:1.0.0",
             design          : "com.google.android.material:material:1.0.0-rc01",
@@ -9,7 +8,9 @@ ext {
             cardView        : "androidx.cardview:cardview:${androidXUI}",
             appCompat       : "androidx.appcompat:appcompat:${androidXUI}",
             constraintLayout: "androidx.constraintlayout:constraintlayout:1.1.2",
+            annotation      : "androidx.annotation:annotation:${androidXUI}"
     ]
+
 
     lifecycleDependencies = [
             lifecycle        : "androidx.lifecycle:lifecycle-extensions:${androidX}",

@@ -4,8 +4,6 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
-apply plugin: "androidx.navigation.safeargs"
-
 apply from: '../gradle/dependencies.gradle'
 
 apply from: '../gradle/androidConfig.gradle'
@@ -20,5 +18,4 @@ dependencies {
 
     implementation koin
     implementation kotlinDependencies.values()
-
 }

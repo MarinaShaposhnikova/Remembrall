@@ -15,5 +15,7 @@ class EditorFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val value = arguments?.get(KEY_EDITOR_CONFIG) as EditorConfig
+        //TODO: modify with value.type
     }
 }
